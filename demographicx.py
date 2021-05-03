@@ -2,6 +2,8 @@ import numpy as np
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler, TensorDataset
 from transformers import BertForSequenceClassification, AutoTokenizer
 import torch
+from scipy.special import softmax
+
 
 def get_name_pair(s):
         return(s, ' '.join(str(s)).replace('  ', ' ').replace('  ', ' '))
@@ -16,13 +18,13 @@ class gender_classifier:
         dataloader = DataLoader(dataset, batch_size=1)
         for batch in dataloader:
             inputs = {'input_ids':  batch[0], 'attention_mask': batch[1], 'labels': batch[2],}
-        out = np.argmax(self.model(**inputs)[1].detach().tolist()[0])
-        if out == 0:
-            return("male")
-        elif out == 2:
-            return("female")
-        else:
-            return("unknown")
+        output = softmax(self.model(**inputs)[1].detach().tolist()[0])
+        res = {}
+        res['male'] = output[0]
+        res['unknown'] = output[1]
+        res['female'] = output[2]
+        return(res)
+
         
 class race_classifier:
     def __init__(self):
@@ -34,16 +36,14 @@ class race_classifier:
         dataloader = DataLoader(dataset, batch_size=1)
         for batch in dataloader:
             inputs = {'input_ids':  batch[0], 'attention_mask': batch[1], 'labels': batch[2],}
-        out = np.argmax(self.model(**inputs)[1].detach().tolist()[0])
-        if out == 0:
-            return("Black")
-        elif out == 1:
-            return("Hispanic")
-        elif out == 2:
-            return("White")
-        elif out == 3:
-            return("Asian")
-        
+        output = softmax(self.model(**inputs)[1].detach().tolist()[0])
+        res = {}
+        res['Black'] = output[0]
+        res['Hispanic'] = output[1]
+        res['White'] = output[2]
+        res['Asian'] = output[3]
+        return(res)
+
 
 
 
