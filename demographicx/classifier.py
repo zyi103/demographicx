@@ -8,7 +8,7 @@ from transformers import BertForSequenceClassification, AutoTokenizer
 def get_name_pair(s):
         return(s, ' '.join(str(s)).replace('  ', ' ').replace('  ', ' '))
 
-class gender_classifier:
+class GenderClassifier:
     def __init__(self):
         self.model = BertForSequenceClassification.from_pretrained("liamliang/demographics_gender")
         self.tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
@@ -26,7 +26,7 @@ class gender_classifier:
         return(res)
 
         
-class race_classifier:
+class RaceClassifier:
     def __init__(self):
         self.model = BertForSequenceClassification.from_pretrained("liamliang/demographics_race")
         self.tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
