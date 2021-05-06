@@ -1,8 +1,8 @@
 import numpy as np
-from torch.utils.data import DataLoader, RandomSampler, SequentialSampler, TensorDataset
-from transformers import BertForSequenceClassification, AutoTokenizer
 import torch
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler, TensorDataset
 from scipy.special import softmax
+from transformers import BertForSequenceClassification, AutoTokenizer
 
 
 def get_name_pair(s):

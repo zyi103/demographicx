@@ -10,5 +10,5 @@ setuptools.setup(
         long_description = long_description,
         packages = setuptools.find_packages(),
         python_requires = '>=3.6',
-        install_requires=['tensorflow', 'numpy']
+        install_requires=['numpy','pytorch','scipy','transformers']
 )
