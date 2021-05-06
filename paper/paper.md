@@ -54,7 +54,7 @@ Here, we describe a Python package called `demographicx` which infers gender fro
 
 : Race prediction performance on validation (val) split of the mixed data set and Wikipedia (Wiki) names
 
-Because our package is built based on the transformers package, it can be easily incorporated into PyTorch and transformers. The API is very simple on purpose. Our package has already been used in [@acuna2021are] and multiple other internal projects.
+Because our package is built based on the `transformers` package, it can be easily incorporated into PyTorch and transformers. The API is very simple on purpose. Our package has already been used in [@acuna2021are] and multiple other internal projects.
 
 ``` {.python}
 In: from demographicx import GenderEstimator
