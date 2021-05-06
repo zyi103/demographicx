@@ -1,19 +1,26 @@
+# Demographicx Python Package
+
+## Summary
+This package was used in the following publication:
+
+Acuna, Daniel E., Liang, Lizhen (2021), *Are AI ethics conferences different and more diverse compared to traditional computer science conferences?* In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society https://doi.org/10.1145/3461702.3462616
+
+
+
+## Installation
 ```bash
-!pip install git+https://github.com/sciosci/demographicx
+$ pip install git+https://github.com/sciosci/demographicx
 ```
 
+## Example
 ```python
-from demographicx.classifier import GenderEstimator, EthnicityEstimator
-```
-
-
-```python
-gender_classifier = GenderClassifier()
+from demographicx import GenderEstimator, EthnicityEstimator
 ```
 
 
 ```python
-gender_classifier.predict('Daniel')
+gender_estimator = GenderClassifier()
+gender_estimator.predict('Daniel')
 ```
 
 
@@ -24,35 +31,36 @@ gender_classifier.predict('Daniel')
      'female': 1.2958190945360288e-05}
 
 ```python
-race_classifier = classifier.EthnicityEstimator()
-```
-
-
-```python
-race_classifier.predict('lizhen liang')
+ethnicity_estimator = classifier.EthnicityEstimator()
+ethnicity_estimator.predict('lizhen liang')
 ```
 
 
 
 
-    {'Black': 2.1461191541442314e-06,
-     'Hispanic': 4.0070474029127346e-05,
-     'White': 0.0002176521167431309,
-     'Asian': 0.999740131290074}
+    {'black': 2.1461191541442314e-06,
+     'hispanic': 4.0070474029127346e-05,
+     'white': 0.0002176521167431309,
+     'asian': 0.999740131290074}
 
 
 
 
 ```python
-race_classifier.predict('daniel wegmann')
+ethnicity_estimator.predict('daniel wegmann')
 ```
 
 
 
 
-    {'Black': 4.120965729769303e-06,
-     'Hispanic': 0.0023926903023342287,
-     'White': 0.9963380370701861,
-     'Asian': 0.00126515166175015}
+    {'black': 4.120965729769303e-06,
+     'hispanic': 0.0023926903023342287,
+     'white': 0.9963380370701861,
+     'asian': 0.00126515166175015}
 
 
+## Dependencies
+* numpy
+* torch
+* scipy
+* transformers

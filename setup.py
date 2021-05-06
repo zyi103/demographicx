@@ -4,7 +4,7 @@ with open("README.md", 'r') as fh:
     long_description = fh.read()
 
 setuptools.setup(
-        name = "demographicx-pkg-LiamLiang",
+        name = "demographicx",
         version = "0.0.1",
         author = "Lizhen Liang",
         long_description = long_description,

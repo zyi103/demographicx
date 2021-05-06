@@ -4,6 +4,7 @@ tags:
   - Python
   - name
   - gender
+  - ethnicity
   - race
   - BERT
   - NLP
@@ -142,14 +143,16 @@ Here, we describe a Python package called demographicx which infers gender from 
 
 Because our package is built based on the transformers package, it can be easily incorporated into PyTorch and transformers. The API is very simple on purpose. Our package has already been used in Acuna and Liang (2021) and multiple other internal projects.
 ``` python
-In: from demographicx import gender_estimator
+In: from demographicx import GenderEstimator
+In: gender_estimator = GenderEstimator()
 In: gender_estimator.predict(“Daniel”)
 Out: {‘female’: 0.001, ‘male’: 0.988, ‘unknown’, 0.011}
 
 In: gender_estimator.predict(“Amy”)
 Out: {‘female’: 0.998, ‘male’: 0.001, ‘unknown’, 0.001}
 
-In: from demographicx import ethnicity_estimator
+In: from demographicx import EthnicityEstimator
+In: ethnicity_estimator = EthnicityEstimator()
 In: ethnicity_estimator.predict(“Daniel Acuna”)
 Out: {‘white’: 0.002, ‘hispanic’: 0.998, ‘black’, 0.000, ‘asian’: 0.000}
 
