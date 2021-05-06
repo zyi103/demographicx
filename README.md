@@ -3,7 +3,7 @@
 ```
 
 ```python
-from demographicx.classifier import GenderClassifier, RaceClassifier
+from demographicx.classifier import GenderEstimator, EthnicityEstimator
 ```
 
 
@@ -23,11 +23,8 @@ gender_classifier.predict('Daniel')
      'unknown': 0.011367974526753396,
      'female': 1.2958190945360288e-05}
 
-
-
-
 ```python
-race_classifier = classifier.RaceClassifier()
+race_classifier = classifier.EthnicityEstimator()
 ```
 
 
